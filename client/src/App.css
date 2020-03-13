@@ -1,0 +1,28 @@
+/* .App {
+  text-align: center;
+} */
+.container{
+  margin-top: 35px;
+  min-height: 16vh;
+}
+.google{
+  float: left;
+}
+.p{
+  float: right;
+  padding-right: 200px;
+}
+.search{
+  min-height: 19vh;
+}
+
+.btn{
+  float: right;
+}
+.res, .book{
+  float: left;
+}
+.book{
+  float: left;
+  padding-left: 200px;
+}
