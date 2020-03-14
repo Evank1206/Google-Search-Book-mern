@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Search = () => {
 
-    const search = () => {
+    const BtnSearch = () => {
         console.log("button clicked");
 
     }
@@ -13,7 +13,7 @@ const Search = () => {
 {/* span & route to page  */}
             <h3 className="book">Book</h3>
             <Link to="/save">
-                <p className="p"><a href="/save" >Keep</a></p>
+                <p className="p">Keep</p>
             </Link>
 {/* header text */}
             <div className="container text-center border border-primary">
@@ -28,7 +28,7 @@ const Search = () => {
                 <div className="search mt-4">
                     <input type="text" className="form-control" placeholder="Search Books" />
                     <br/>
-                    <button className="btn btn-outline-secondary" onClick={search} type="button">Search</button>
+                    <button className="btn btn-outline-secondary" onClick={BtnSearch} type="button">Search</button>
                 </div>
             </div>
 {/* result */}

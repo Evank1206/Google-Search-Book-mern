@@ -7,7 +7,7 @@ const save = () => {
 {/* span & route to page  */}
             <h3 className="book">Book</h3>
             <Link to="/search" >
-                <p className="p"><a href="/save">Search</a></p>
+                <p className="p">Search</p>
             </Link>
 {/* header text */}
             <div className="container text-center border border-primary">
