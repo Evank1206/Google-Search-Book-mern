@@ -1,22 +1,25 @@
-import React from "react";
-import Search from "./Search";
-import Save from "./Save";
-import './App.css';
+import React, { Component } from 'react';
 // import router from react-router-dome npm/package
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import './App.css';
+import Search from "./Search";
+import Save from "./Save";
 
-const App = () => {
+class App extends Component {
+  
+  render() {
 
-  return (
-    <Router>
-      <Switch>
-{/* navigating to between two pages by exact path="" */}
-        <Route exact path="/search"> <Search/></Route>
-        <Route exact path="/save"> <Save/> </Route>
+    return (
+      <Router>
+        <Switch>
+          {/* navigating to between two pages by exact path="" */}
+          <Route exact path="/search"> <Search /></Route>
+          <Route exact path="/save"> <Save /> </Route>
 
-      </Switch>
-    </Router>
-  );
+        </Switch>
+      </Router>
+    )
+  }
 }
 
 export default App;
