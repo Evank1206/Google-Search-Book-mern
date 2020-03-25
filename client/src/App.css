@@ -26,3 +26,6 @@
   float: left;
   padding-left: 200px;
 }
+.read :hover{
+  color: green;
+}

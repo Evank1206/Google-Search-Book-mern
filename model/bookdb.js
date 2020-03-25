@@ -9,7 +9,7 @@ const booksSchema = new Schema({
         required: true
     },
     authors:{
-        type: String,
+        type: [String],
         required: true
     },
     description:{
@@ -26,6 +26,7 @@ const booksSchema = new Schema({
     }
 })
 
-const bookdb = mongoose.model('bookdb', booksSchema);
+const book = mongoose.model('Book', booksSchema);
+// module.exports = mongoose.model('Book', booksSchema)
 
-module.exports = bookdb;
+module.exports = book;

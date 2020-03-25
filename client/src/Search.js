@@ -10,7 +10,7 @@ class Search extends Component {
             searchResults: []
         }
     }
-
+    // the function that grabs value from input
     handleChange = e => {
         e.preventDefault();
         this.setState({
@@ -21,8 +21,8 @@ class Search extends Component {
     // the function send info to back-end using axios
     SubmitValue = (e) => {
         e.preventDefault();
-        //    console.log(this.state.bookName);
-        // this function hitting /search routes which is in apiRoutes file route.get("/search/:book")
+        // console.log(this.state.bookName);
+        // this function hitting /search routes which is in apiRoutes file route.get("/search/:book") : qeury.params
         axios.get(`search/${this.state.bookName}`).then(res => {
             console.log(res.data)
             this.setState({
@@ -34,38 +34,29 @@ class Search extends Component {
 
     }
     // my save function
-    saveBook = () => {
-        // console.log("hello i'm here");
-        axios.post('books/save', { title: "something", authors: "harry potter", description: "", image: "", link: "" }).then(res => {
+    saveBook = (title, author, description, image, link) => {
+        console.log("title: ", title)
+        console.log("author: ", author);
+        console.log("description:", description)
+        console.log("image: ", image)
+        console.log("link: ", link)
+
+        axios.post('books/save', { title: title, authors: author, description: description, image: image, link: link }).then(res => {
             console.log(res)
         })
-
     }
-    // for lool & map()
-    // componentDidMount() {
-    //     let exampleArray = ["hello", "thing", "hi"]
-
-    //     for (let i = 0; i < exampleArray.length; i++) {
-    //         let item = exampleArray[i]
-    //         console.log(item, i)
-    //     }
-
-    //     console.log('---------------------------------')
-
-    //     exampleArray.map((item, i) => {
-    //         console.log(item, i)
-    //     })
-    // }
 
     render() {
 
         return (
             <div>
                 {/* span & route to page  */}
-                <h3 className="book">Book</h3>
-                <Link to="/save">
-                    <p className="p">Keep</p>
-                </Link>
+                <div className="#">
+                    <h3 className="book">Book</h3>
+                    <Link to="/save">
+                        <p className="p">Keep</p>
+                    </Link>
+                </div>
                 {/* header text */}
                 <div className="container text-center border border-primary">
                     <div className="title mt-4">
@@ -84,8 +75,8 @@ class Search extends Component {
                 </div>
                 {/* result */}
                 <div className="container re mt-4 text-center border border-primary">
-                    <span className="res m-3">Result</span>
-                    <br/><br/>
+                    <span className="res m-3">Result From Search</span>
+                    <br /><br />
                     <div className="result">
                         {this.state.searchResults.map((book, index) => (
                             // <h1>{book.accessInfo.country}</h1>
@@ -96,9 +87,10 @@ class Search extends Component {
                                     <h2 className="card-title">Title: {book.volumeInfo.title}</h2>
                                     <h3 className="card-subtitle mb-2 text-muted">Author: {book.volumeInfo.authors}</h3>
                                     <p className="card-text"><b>Description:</b> {book.volumeInfo.description}</p>
-                                    <img className="img mb-2" src={book.volumeInfo.imageLinks}/>
-                                    {/* <button className="card-subtitle mb-2 text-muted">Image: {book.selfLink}</button> */}
-                                    <button className="btn btn-outline-secondary" onClick={this.saveBook} type="button">Save</button>
+                                    <img className="img mb-2" src={book.volumeInfo.imageLinks.thumbnail} />
+                                    <br />
+                                    <a href={book.accessInfo.webReaderLink} className="float-left read card-subtitle mb-2 text-muted"><b>read more...</b></a>
+                                    <button className="btn btn-outline-secondary" onClick={() => this.saveBook(book.volumeInfo.title, book.volumeInfo.authors, book.volumeInfo.description, book.volumeInfo.imageLinks.thumbnail, book.selfLink)} type="button">Save</button>
                                 </div>
                             </div>
                         ))}

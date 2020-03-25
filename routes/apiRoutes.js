@@ -4,7 +4,7 @@ const axios = require("axios");
 require("dotenv").config();
 
 // model file required here
-const db = require('../model/bookdb');
+const Book = require('../model/bookdb');
 // mongoose required here
 const mongoose = require('mongoose');
 // connecting to mongodb database
@@ -14,21 +14,11 @@ mongoose.connect("mongodb://localhost/GoogleBooks",
         useUnifiedTopology: true
     });
 
-// return all saved books as JSON
-// router.get('/api/books', (req, res) => {
-//     db.find({}).then((bookData) => {
-//         res.json({ bookData })
-//         console.log(bookData);
-
-//     })
-// })
-
 // make post request 
 // url: books/save
 // step 1:) show all data on react front end
 // step 2:) send all data to backend when you click save.
 // step 3:) save data to mongodb
-
 
 const Api_Key = process.env.GOOGLE_APIKEY;
 
@@ -42,22 +32,35 @@ router.get(`/search/:book`, (req, res) => {
     }).catch(err => {
         res.send('an error')
     })
-    console.log(req.params.book);
-    
-    
+    // console.log(req.params.book);
 });
-
+// type: POST
+// route: /books/save
+// saves book to database
 router.post("/books/save", (req, res) => {
+    // res.send(req.body);
+    console.log("this is from req.body", req.body);
 
-    res.send(req.body);
-    console.log(req.body)
+    // console.log(req.body.title)
+
+    // create db entry using this data.
+    const book = new Book({
+        title: req.body.title,
+        authors: req.body.author,
+        description: req.body.description,
+        image: req.body.image,
+        link: req.body.link
+    })
+    book.save().then(data => {
+        res.send(data)
+    })
 })
 
-// google url:
-// http://www.google.com/search?q=books -
-// apiKey:
-// key=API_KEY parameter
-
+// getting book from database and render in save page
+router.get("/books/keep", (req, res)=>{
+    // Book.books.find({})
+    res.send(Book.books.find({}))
+})
 
 
 
