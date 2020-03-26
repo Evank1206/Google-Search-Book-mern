@@ -7,7 +7,11 @@ require('dotenv').config();
 // initializing PORT here
 const PORT = process.env.PORT || 5000;
 
-app.use(express.urlencoded({extended:true}));
+if (process.env.NODE.ENV === "production") {
+    app.use(express.static("client/build"));
+}
+
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // importing apiRoutes from routes folder
@@ -18,6 +22,6 @@ app.use('/', apiRoutes);
 
 
 
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
     console.log(`Connected : http://localhost:${PORT}`);
 })
