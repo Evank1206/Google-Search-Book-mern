@@ -35,11 +35,11 @@ class Search extends Component {
     }
     // my save function
     saveBook = (title, author, description, image, link) => {
-        console.log("title: ", title)
-        console.log("author: ", author);
-        console.log("description:", description)
-        console.log("image: ", image)
-        console.log("link: ", link)
+        // console.log("title: ", title)
+        // console.log("author: ", author);
+        // console.log("description:", description)
+        // console.log("image: ", image)
+        // console.log("link: ", link)
 
         axios.post('books/save', { title: title, authors: author, description: description, image: image, link: link }).then(res => {
             console.log(res)

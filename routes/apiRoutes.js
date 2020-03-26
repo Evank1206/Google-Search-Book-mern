@@ -39,7 +39,7 @@ router.get(`/search/:book`, (req, res) => {
 // saves book to database
 router.post("/books/save", (req, res) => {
     // res.send(req.body);
-    console.log("this is from req.body", req.body);
+    // console.log("this is from req.body", req.body);
 
     // console.log(req.body.title)
 
@@ -57,10 +57,10 @@ router.post("/books/save", (req, res) => {
 })
 
 // getting book from database and render in save page
-router.get("/books/keep", (req, res)=>{
-    // Book.books.find({})
-    res.send(Book.books.find({}))
-})
+// router.get("/books/keep", (req, res)=>{
+//     // Book.books.find({})
+//     res.send(Book.books.find({}))
+// })
 
 
 
