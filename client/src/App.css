@@ -1,31 +1,62 @@
-/* .App {
-  text-align: center;
-} */
-.container{
-  margin-top: 35px;
-  min-height: 16vh;
-}
-.google{
-  float: left;
-}
-.p{
-  float: right;
-  padding-right: 200px;
-}
-.search{
-  min-height: 19vh;
+.App {
+    background-color: blue;
 }
 
-.btn{
-  float: right;
+.container {
+    background-image: url("./img/bookimg3.jpg");
+    background-position: center;
+    margin-top: 35px;
+    min-height: 16vh;
 }
-.res, .book{
-  float: left;
+
+.google {
+    float: left;
 }
-.book{
-  float: left;
-  padding-left: 200px;
+
+.p {
+    float: right;
+    padding-right: 200px;
 }
-.read :hover{
-  color: green;
+
+.span {
+    color: white;
+}
+
+.search {
+    min-height: 19vh;
+}
+
+.btn {
+    float: right;
+    background-color: green;
+    color: white;
+}
+
+.somebtn {
+    background-color: red;
+}
+
+.res,
+.book {
+    float: left;
+}
+
+.book {
+    /* margin-top: 40px; */
+    float: left;
+    padding-left: 200px;
+}
+
+.read :hover {
+    color: green;
+}
+
+.img {
+    border: solid grey;
+    width: 150px;
+    border-radius: 5%;
+}
+
+.purchaseBtn {
+    margin-top: 190px;
 }

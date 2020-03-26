@@ -35,13 +35,13 @@ class Search extends Component {
     }
     // my save function
     saveBook = (title, author, description, image, link) => {
-        // console.log("title: ", title)
-        // console.log("author: ", author);
-        // console.log("description:", description)
-        // console.log("image: ", image)
-        // console.log("link: ", link)
+        console.log("title: ", title)
+        console.log("author: ", author[0]);
+        console.log("description:", description)
+        console.log("image: ", image)
+        console.log("link: ", link)
 
-        axios.post('books/save', { title: title, authors: author, description: description, image: image, link: link }).then(res => {
+        axios.post('books/save', { title: title, authors: author[0], description: description, image: image, link: link }).then(res => {
             console.log(res)
         })
     }
@@ -60,8 +60,8 @@ class Search extends Component {
                 {/* header text */}
                 <div className="container text-center border border-primary">
                     <div className="title mt-4">
-                        <h1>Google Book Search</h1>
-                        <span>Search books and keep of Interest</span>
+                        <h1 className="#">Google Book Search</h1>
+                        <span className="span">Search books and keep of Interest</span>
                     </div>
                 </div>
                 {/*search input */}
